@@ -141,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\EmpDept.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\New\Index3.cshtml" />
     <Content Include="Views\New\Index4.cshtml" />
+    <Content Include="Views\New\Index5.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

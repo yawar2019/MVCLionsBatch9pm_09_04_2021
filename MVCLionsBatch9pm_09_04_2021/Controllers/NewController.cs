@@ -134,8 +134,11 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             listdept.Add(dept);
             listdept.Add(dept1);
 
+            EmpDept empdept = new Models.EmpDept();
+            empdept.emp = listobj;
+            empdept.dept = listdept;
 
-            return View(listobj);
+            return View(empdept);
         }
     }
 }
