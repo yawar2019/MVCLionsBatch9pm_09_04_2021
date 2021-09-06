@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+<table class="table table-bordered table-condensed table-striped">
+    <tr>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>EmpSalary</th>
+    </tr>
+
+    @foreach (var item in ViewBag.info)//3
+    {
+        <tr>
+            <td>
+                @item.EmpId
+            </td>
+            <td>
+                @item.EmpName
+            </td>
+            <td>
+                @item.EmpSalary
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+ 
