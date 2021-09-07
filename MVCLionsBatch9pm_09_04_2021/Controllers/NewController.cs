@@ -140,5 +140,25 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
             return View(empdept);
         }
+        public ViewResult sendData()
+        {
+            ViewBag.Wish = "Want to become Immortal";
+            return View("~/Views/Default/index.cshtml");
+        }
+
+        public ActionResult sendData3()
+        {
+            return Redirect("http://www.google.com");
+        }
+
+
+        public RedirectResult DisplayView()
+        {
+            return Redirect("http://www.google.com");
+        }
+        public RedirectResult DisplayView2()
+        {
+            return Redirect("~/new/Index5");
+        }
     }
 }
