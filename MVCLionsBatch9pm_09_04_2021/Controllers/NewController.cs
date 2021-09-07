@@ -9,7 +9,7 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 {
     public class NewController : Controller
     {
-        // GET: Ravi got latest Code
+        // GET: kanupriya got latest Code
         public ActionResult Index()
         {
             EmployeeModel emp = new EmployeeModel();
