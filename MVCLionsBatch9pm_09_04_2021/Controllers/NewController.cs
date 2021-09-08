@@ -160,5 +160,37 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         {
             return Redirect("~/new/Index5");
         }
+
+        public ActionResult PartialViewExample()
+        {
+            return View();
+        }
+
+        public ActionResult PartialViewExample2()
+        {
+            List<EmployeeModel> listobj = new List<EmployeeModel>();
+
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "Rajesh";
+            emp.EmpSalary = 21000;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 2;
+            emp1.EmpName = "suresh";
+            emp1.EmpSalary = 41000;
+
+            EmployeeModel emp2 = new EmployeeModel();
+            emp2.EmpId = 3;
+            emp2.EmpName = "Kamlesh";
+            emp2.EmpSalary = 41000;
+
+            listobj.Add(emp);
+            listobj.Add(emp1);
+            listobj.Add(emp2);
+
+
+            return View(listobj);
+        }
     }
 }

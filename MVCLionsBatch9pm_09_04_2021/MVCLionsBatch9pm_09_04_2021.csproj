@@ -163,6 +163,10 @@
     <Content Include="Views\New\Index5.cshtml" />
     <Content Include="Views\New\sendData.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Shared\_MyPartialView.cshtml" />
+    <Content Include="Views\New\PartialViewExample.cshtml" />
+    <Content Include="Views\New\PartialViewExample2.cshtml" />
+    <Content Include="Views\Shared\_EmployeePartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
