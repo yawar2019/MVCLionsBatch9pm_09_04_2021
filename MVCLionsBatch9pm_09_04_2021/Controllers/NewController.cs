@@ -192,5 +192,77 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
             return View(listobj);
         }
+
+
+        public JsonResult GetJsoninfo()
+        {
+            List<EmployeeModel> listobj = new List<EmployeeModel>();
+
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "Rajesh";
+            emp.EmpSalary = 21000;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 2;
+            emp1.EmpName = "suresh";
+            emp1.EmpSalary = 41000;
+
+            EmployeeModel emp2 = new EmployeeModel();
+            emp2.EmpId = 3;
+            emp2.EmpName = "Kamlesh";
+            emp2.EmpSalary = 41000;
+
+            listobj.Add(emp);
+            listobj.Add(emp1);
+            listobj.Add(emp2);
+
+
+            return Json(listobj,JsonRequestBehavior.AllowGet);
+        }
+
+        public PartialViewResult showPartialData()
+        {
+            List<EmployeeModel> listobj = new List<EmployeeModel>();
+
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "Rajesh";
+            emp.EmpSalary = 21000;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 2;
+            emp1.EmpName = "suresh";
+            emp1.EmpSalary = 41000;
+
+            EmployeeModel emp2 = new EmployeeModel();
+            emp2.EmpId = 3;
+            emp2.EmpName = "Kamlesh";
+            emp2.EmpSalary = 41000;
+
+            listobj.Add(emp);
+            listobj.Add(emp1);
+            listobj.Add(emp2);
+
+            return PartialView("_EmployeePartialView", listobj);
+        }
+
+        public FileResult getFiledata()
+        {
+
+            return File("~/Web.config","text/plain");
+        }
+
+        public FileResult getFiledata2()
+        {
+
+            return File("~/Web.config", "application/xml");
+        }
+
+        public FileResult getFiledata3()
+        {
+
+            return File("~/ActionResult.pdf", "application/pdf", "taxi.pdf");
+        }
     }
 }
