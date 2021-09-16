@@ -10,9 +10,10 @@ namespace AdoDotnetExample.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        EmployeeContext db = new EmployeeContext();
         public ActionResult Index()
         {
-            EmployeeContext db = new EmployeeContext();
+           
             return View(db.getEmployee());
         }
         [HttpGet]
@@ -24,7 +25,19 @@ namespace AdoDotnetExample.Controllers
         [HttpPost]
         public ActionResult Create(EmployeeDetail emp)
         {
+            int i = db.SaveEmployee(emp);
+            if (i > 0)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            EmployeeDetail det = db.getEmployeeById(id);
+            return View(det);
         }
     }
 }
