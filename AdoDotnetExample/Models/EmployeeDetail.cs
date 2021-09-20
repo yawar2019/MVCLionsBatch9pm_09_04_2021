@@ -71,5 +71,29 @@ namespace AdoDotnetExample.Models
             }
             return emp;
         }
+
+        public int UpdateEmployee(EmployeeDetail emp)
+        {
+            SqlCommand cmd = new SqlCommand("sp_UpdateNeerjaEmployees", con);
+            con.Open();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@EmpId", emp.EmpId);
+            cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
+            cmd.Parameters.AddWithValue("@EmpSalary", emp.EmpSalary);
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            return i;
+        }
+        public int DeleteEmployeeById(int? id)
+        {
+            SqlCommand cmd = new SqlCommand("spr_deleteEmployeeDetails", con);
+            con.Open();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@empid", id);
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            return i;
+        }
+        
     }
 }
