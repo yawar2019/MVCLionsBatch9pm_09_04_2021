@@ -20,8 +20,17 @@
             <td>@item.EmpSalary</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = @item.EmpId })|
-                @Html.ActionLink("Delete", "Delete", new {id=@item.EmpId})
+                @Html.ActionLink("Delete", "Delete", new { id = @item.EmpId })
             </td>
         </tr>
     }
 </table>
+
+@section Adds
+    {
+   <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+}
+@section Adds2
+    {
+    <script src="~/Scripts/bootstrap.min.js"></script>
+}

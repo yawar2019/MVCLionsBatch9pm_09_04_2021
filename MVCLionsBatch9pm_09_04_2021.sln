@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCLionsBatch9pm_09_04_2021
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoDotnetExample", "AdoDotnetExample\AdoDotnetExample.csproj", "{02E72FC2-A4E4-4FE9-AD24-C59327885414}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstApproach", "CodeFirstApproach\CodeFirstApproach.csproj", "{FC034CB5-7640-4D38-85AB-8E2C8CD5A426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{02E72FC2-A4E4-4FE9-AD24-C59327885414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02E72FC2-A4E4-4FE9-AD24-C59327885414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02E72FC2-A4E4-4FE9-AD24-C59327885414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC034CB5-7640-4D38-85AB-8E2C8CD5A426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC034CB5-7640-4D38-85AB-8E2C8CD5A426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC034CB5-7640-4D38-85AB-8E2C8CD5A426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC034CB5-7640-4D38-85AB-8E2C8CD5A426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
