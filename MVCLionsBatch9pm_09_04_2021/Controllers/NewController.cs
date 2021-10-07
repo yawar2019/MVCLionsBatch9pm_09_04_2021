@@ -264,5 +264,21 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
             return File("~/ActionResult.pdf", "application/pdf", "taxi.pdf");
         }
+
+        public ActionResult HtmlHelperExample()
+        {
+
+            return View();
+        }
+
+        public JsonResult getdata(string Name)
+        {
+            EmployeeModel emp = new Models.EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "ravi";
+            emp.EmpSalary = 100000;
+
+            return Json(emp,JsonRequestBehavior.AllowGet);
+        }
     }
 }

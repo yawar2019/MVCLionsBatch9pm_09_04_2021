@@ -1,0 +1,35 @@
+﻿<style>
+.test{
+    font-size:larger;
+}
+    </style>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    
+<script>
+      function fun() {
+        $.ajax({
+            url: "http://localhost:62354/New/getdata",
+            data: {
+                EmpName:$('#FirstName').val()
+            },
+            type: "Get",
+            datatype: "json",
+            success: function (result) {
+                alert(result);
+                $('#resultValue').val(result.EmpName);
+            }
+        });
+    }
+ 
+   
+</script>
+
+@{
+    ViewBag.Title = "HtmlHelperExample";
+}
+
+<h2>HtmlHelperExample</h2> 
+ 
+@Html.TextBox("FirstName","john",new {@style="background-color:gray",@class="test",@onclick="fun()" }) 
+
+<input type="text" id="resultValue" value="" />

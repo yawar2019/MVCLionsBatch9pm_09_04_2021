@@ -31,6 +31,11 @@ namespace DatabaseApproach.Controllers
             return View(result);
         }
 
+        public ActionResult Index2()
+        {
+            return View(db.sp_employee().ToList());
+        }
+
         // GET: employeeDetails/Details/5
         public ActionResult Details(int? id)
         {
@@ -55,15 +60,29 @@ namespace DatabaseApproach.Controllers
         // POST: employeeDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "EmpId,EmpName,EmpSalary,DeptId,Address,dob,Status,CreatedBy")] employeeDetail employeeDetail)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.employeeDetails.Add(employeeDetail);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(employeeDetail);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmpId,EmpName,EmpSalary,DeptId,Address,dob,Status,CreatedBy")] employeeDetail employeeDetail)
+        public ActionResult Create(employeeDetail employeeDetail)
         {
             if (ModelState.IsValid)
             {
-                db.employeeDetails.Add(employeeDetail);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                db.sp_CreateEmployee(employeeDetail.EmpName,employeeDetail.EmpSalary);
+               
+                return RedirectToAction("Index2");
             }
 
             return View(employeeDetail);

@@ -27,6 +27,11 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="MobileNo" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="sp_CreateEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpName" Type="varchar" Mode="In" />
+          <Parameter Name="EmpSalary" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="EmployeeModelStoreContainer">
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="employeeDetails" EntityType="Self.employeeDetails" Schema="dbo" store:Type="Tables" />
@@ -52,6 +57,11 @@
         <EntityContainer Name="EmployeeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="employeeDetails" EntityType="Self.employeeDetail" />
           <EntitySet Name="Departments" EntityType="EmployeeModel.Department" />
+          <FunctionImport Name="sp_employee" ReturnType="Collection(EmployeeModel.sp_employee_Result)" />
+          <FunctionImport Name="sp_CreateEmployee">
+            <Parameter Name="EmpName" Mode="In" Type="String" />
+            <Parameter Name="EmpSalary" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Department">
           <Key>
@@ -61,6 +71,11 @@
           <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="sp_employee_Result">
+          <Property Type="Int32" Name="EmpId" Nullable="false" />
+          <Property Type="String" Name="EmpName" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="EmpSalary" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -91,6 +106,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_employee" FunctionName="EmployeeModel.Store.sp_employee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmployeeModel.sp_employee_Result">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="EmpSalary" ColumnName="EmpSalary" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_CreateEmployee" FunctionName="EmployeeModel.Store.sp_CreateEmployee" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
