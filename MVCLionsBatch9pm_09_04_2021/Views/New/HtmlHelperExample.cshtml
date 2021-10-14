@@ -1,35 +1,97 @@
-﻿<style>
-.test{
-    font-size:larger;
-}
-    </style>
+﻿@using MVCLionsBatch9pm_09_04_2021.myhtmlhelper
+<style>
+    .test {
+        font-size: larger;
+    }
+</style>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    
+
 <script>
-      function fun() {
+    function fun(a) {
         $.ajax({
             url: "http://localhost:62354/New/getdata",
             data: {
-                EmpName:$('#FirstName').val()
+                Name: $('#st').val()
             },
             type: "Get",
             datatype: "json",
-            success: function (result) {
-                alert(result);
-                $('#resultValue').val(result.EmpName);
+            success: function (r) {
+                alert(r);
+                $('#ShowValue').html(r.EmpName);
             }
         });
     }
- 
-   
+
+
 </script>
 
 @{
     ViewBag.Title = "HtmlHelperExample";
 }
 
-<h2>HtmlHelperExample</h2> 
- 
-@Html.TextBox("FirstName","john",new {@style="background-color:gray",@class="test",@onclick="fun()" }) 
+<h2>HtmlHelperExample</h2>
 
-<input type="text" id="resultValue" value="" />
+@Html.TextBox("FirstName", "john", new { @style = "background-color:gray", @class = "test", @onclick = "fun()" })
+
+<input type="text" id="resultValue" value="" /><br />
+
+@Html.Password("pwd", "john")<br />
+Male @Html.RadioButton("gender", "Male", true)
+Female @Html.RadioButton("gender", "FeMale")<br />
+JAva @Html.CheckBox("java", true, new { @onchange = "fun(this)" })
+Asp: @Html.CheckBox("Asp")<br />
+@Html.DropDownList("Country", new List<SelectListItem>()
+{
+    new SelectListItem {Text="India",Value="1" },
+    new SelectListItem {Text="China",Value="2" },
+    new SelectListItem {Text="Bangladesh",Value="3" }
+}, "---Select Country--")<br />
+
+@Html.TextArea("Address", "Ameerpet Naresh IT", 10, 80, null)
+<form action="HtmlHelperExample" method="post">
+    @Html.DropDownList("State")<br />
+
+
+    Male @Html.RadioButton("gender", "Male", true)
+    Female @Html.RadioButton("gender", "FeMale")<br />
+
+    @foreach (var item in ViewBag.listskill)
+    {
+        <input type="checkbox" name="skill" value="@item.skillId" id="@item.skillId" checked="checked" />
+        <label>
+            @item.skillName
+        </label>
+    }
+
+
+
+    <input type="submit" value="submit" />
+
+</form>
+<br />
+@ViewBag.SelectedState<br />
+@ViewBag.genderExample<br />
+@if (ViewBag.selectedSkill != null)
+{
+    foreach (var item in ViewBag.selectedSkill)
+    {
+        @item.skillName<br />
+    }
+}
+
+
+
+@Html.DropDownList("st", (IEnumerable<SelectListItem>)ViewBag.State, "select Country",new {@onchange= "fun()" })<br />
+<p id="ShowValue"></p>
+
+@HtmlHelperControl.MyLabel("FirstName","red")
+
+@Html.createUrControl("text")<br />
+@Html.createUrControl("checkbox")<br />
+@Html.createUrControl("radio")<br />
+@Html.createUrControl("file")
+@createlabel("I accept Agreement")
+
+@helper createlabel(string content) { 
+    <label>content</label>
+    }

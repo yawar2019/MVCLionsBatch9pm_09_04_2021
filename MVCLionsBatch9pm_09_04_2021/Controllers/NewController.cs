@@ -267,10 +267,41 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
         public ActionResult HtmlHelperExample()
         {
+            CountryEntities db = new Models.CountryEntities();
+            ViewBag.State = new SelectList(db.States.ToList(), "Id", "StateName",13);
 
+            List<Skills> listskill = new List<Models.Skills>()
+            {
+                new Skills {skillId=1,skillName="MVC" },
+                new Skills {skillId=2,skillName="C#" },
+                new Skills {skillId=3,skillName="Sql" }
+               
+            };
+            ViewBag.listskill = listskill;
             return View();
         }
 
+        [HttpPost]
+        public ActionResult HtmlHelperExample(int State,string gender,int[] skill)
+        {
+            CountryEntities db = new Models.CountryEntities();
+            ViewBag.State = new SelectList(db.States.ToList(), "Id", "StateName", 13);
+            State SelectedState = db.States.Where(s => s.Id == State).SingleOrDefault();
+            ViewBag.SelectedState = SelectedState.Id + "-" + SelectedState.StateName;
+            ViewBag.genderExample = gender + " is selected";
+
+
+            List<Skills> listskill = new List<Models.Skills>()
+            {
+                new Skills {skillId=1,skillName="MVC" },
+                new Skills {skillId=2,skillName="C#" },
+                new Skills {skillId=3,skillName="Sql" }
+            };
+            ViewBag.listskill = listskill;
+            ViewBag.selectedSkill = listskill.Where(i => skill.ToArray().Contains(i.skillId));
+
+            return View();
+        }
         public JsonResult getdata(string Name)
         {
             EmployeeModel emp = new Models.EmployeeModel();
