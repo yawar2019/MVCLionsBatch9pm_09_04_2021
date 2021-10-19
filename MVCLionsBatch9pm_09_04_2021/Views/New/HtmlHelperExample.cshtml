@@ -84,7 +84,8 @@ Asp: @Html.CheckBox("Asp")<br />
 @Html.DropDownList("st", (IEnumerable<SelectListItem>)ViewBag.State, "select Country",new {@onchange= "fun()" })<br />
 <p id="ShowValue"></p>
 
-@HtmlHelperControl.MyLabel("FirstName","red")
+@HtmlHelperControl.MyLabel("FirstName", "red")
+@HtmlHelperControl.MyLabel("FirstName", "green")
 
 @Html.createUrControl("text")<br />
 @Html.createUrControl("checkbox")<br />

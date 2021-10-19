@@ -24,14 +24,14 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
         public string catchName()
         {
-            string Name=Request.QueryString["Name"];
+            string Name = Request.QueryString["Name"];
             return Name;
         }
 
         public ActionResult Index2()
         {
             List<EmployeeModel> listobj = new List<EmployeeModel>();
-            
+
 
 
             EmployeeModel emp = new EmployeeModel();
@@ -55,14 +55,14 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
 
             ViewBag.info = listobj;
-             
+
 
             return View();
         }
 
         public ActionResult Index3()
         {
-           
+
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
             emp.EmpName = "Rajesh";
@@ -74,7 +74,7 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         public ActionResult Index4()
         {
             List<EmployeeModel> listobj = new List<EmployeeModel>();
-            
+
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
             emp.EmpName = "Rajesh";
@@ -218,7 +218,7 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             listobj.Add(emp2);
 
 
-            return Json(listobj,JsonRequestBehavior.AllowGet);
+            return Json(listobj, JsonRequestBehavior.AllowGet);
         }
 
         public PartialViewResult showPartialData()
@@ -250,7 +250,7 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         public FileResult getFiledata()
         {
 
-            return File("~/Web.config","text/plain");
+            return File("~/Web.config", "text/plain");
         }
 
         public FileResult getFiledata2()
@@ -268,21 +268,21 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         public ActionResult HtmlHelperExample()
         {
             CountryEntities db = new Models.CountryEntities();
-            ViewBag.State = new SelectList(db.States.ToList(), "Id", "StateName",13);
+            ViewBag.State = new SelectList(db.States.ToList(), "Id", "StateName", 13);
 
             List<Skills> listskill = new List<Models.Skills>()
             {
                 new Skills {skillId=1,skillName="MVC" },
                 new Skills {skillId=2,skillName="C#" },
                 new Skills {skillId=3,skillName="Sql" }
-               
+
             };
             ViewBag.listskill = listskill;
             return View();
         }
 
         [HttpPost]
-        public ActionResult HtmlHelperExample(int State,string gender,int[] skill)
+        public ActionResult HtmlHelperExample(int State, string gender, int[] skill)
         {
             CountryEntities db = new Models.CountryEntities();
             ViewBag.State = new SelectList(db.States.ToList(), "Id", "StateName", 13);
@@ -309,7 +309,26 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             emp.EmpName = "ravi";
             emp.EmpSalary = 100000;
 
-            return Json(emp,JsonRequestBehavior.AllowGet);
+            return Json(emp, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ValidationExample()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult ValidationExample(RegistrationModel reg)
+        {
+            if (ModelState.IsValid)
+            {
+                return Redirect("http://localhost:62354/New/ValidationExample");
+            }
+            else
+            {
+                return View(reg);
+            }
         }
     }
 }

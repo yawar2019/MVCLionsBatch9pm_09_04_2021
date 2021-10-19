@@ -1,0 +1,39 @@
+purchase medicines
+Avalability Medicines
+Expiration Details
+Delivery Management
+OrderManagement
+Feedback
+Inserting/update/delete Medicines/
+Accounts:
+range,yearly,Monthly, weekly,daily,fortnight calculation
+Supplier List
+Customer Management
+Login Account
+Product
+
+Medicines:
+id
+Medicine Name
+Description
+price per unit
+type(tab,syrup)
+quanity 
+Expiry Date
+CompanyId
+SupplierId
+CreatedBy
+CreatedOn
+UpdatedBy 
+UpdatedOn
+
+Customer: 
+CustId,CustName,gender,age,MobileNos,Address,EmailId,CreatedBy,CreatedOn...........            
+DoctorName
+Company :
+CompanyId, Company Name
+Supplier:
+SupplierId,SupplierName,phoneNos,address,EmailId
+Bill table
+BillId,CustomerId,MedicineId,Quanitity,induial Discount,MRP,DoctorName,Total Amount,GST,TotalDiscount
+

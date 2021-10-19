@@ -8,9 +8,9 @@ namespace MVCLionsBatch9pm_09_04_2021.myhtmlhelper
 {
     public static class HtmlHelperControl
     {
-        public static IHtmlString MyLabel(string content,string color)
+        public static IHtmlString MyLabel(string content,string colorinp)
         {
-            string htmlstring = String.Format("<label style='color:red'>{0}</label>", content);
+            string htmlstring = String.Format("<label style='color:"+colorinp+"'>{0}</label>", content);
             return new HtmlString(htmlstring);
 
         }

@@ -142,6 +142,7 @@
       <DependentUpon>CountryModel.edmx</DependentUpon>
       <LastGenOutput>CountryModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Notes\Medicines Management.txt" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -157,6 +158,11 @@
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Views\New\Index.cshtml" />
@@ -187,6 +193,7 @@
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmpDept.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Skills.cs" />
     <Compile Include="Models\State.cs">
       <DependentUpon>CountryModel.tt</DependentUpon>
@@ -216,6 +223,7 @@
     <Content Include="Views\New\PartialViewExample2.cshtml" />
     <Content Include="Views\Shared\_EmployeePartialView.cshtml" />
     <Content Include="Views\New\HtmlHelperExample.cshtml" />
+    <Content Include="Views\New\ValidationExample.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
