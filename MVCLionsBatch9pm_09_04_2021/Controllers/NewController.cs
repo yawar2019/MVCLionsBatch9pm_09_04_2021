@@ -28,7 +28,7 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             return Name;
         }
 
-        public ActionResult Index2()
+        public ActionResult Index2(int? id)
         {
             List<EmployeeModel> listobj = new List<EmployeeModel>();
 
