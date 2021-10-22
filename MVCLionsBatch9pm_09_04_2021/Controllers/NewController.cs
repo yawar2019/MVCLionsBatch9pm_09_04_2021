@@ -7,10 +7,26 @@ using System.Web.Mvc;
 
 namespace MVCLionsBatch9pm_09_04_2021.Controllers
 {
+    [RoutePrefix("girForest")]
     public class NewController : Controller
     {
         // GET: shym got latest Code
-        public ActionResult Index()
+        [Route("jungle/tiger/{id:int:min(1000)}")]
+        [Route("jungle/elephant")]
+        [Route("jungle/Cat")]
+        public ActionResult Index(int? id)
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "Rajesh";
+            emp.EmpSalary = 21000;
+
+            ViewBag.info = emp;
+
+            return View();
+        }
+        [Route("jungle/tiger/{id:alpha}")]
+        public ActionResult Index3(string id)
         {
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
@@ -28,8 +44,8 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             return Name;
         }
 
-        public ActionResult Index2(int? id)
-        {
+        public ActionResult Index2(int id)
+       {
             List<EmployeeModel> listobj = new List<EmployeeModel>();
 
 
@@ -329,6 +345,11 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             {
                 return View(reg);
             }
+        }
+
+        public ActionResult CheckEmail(string EmailId)
+        {
+            return Content(EmailId);
         }
     }
 }

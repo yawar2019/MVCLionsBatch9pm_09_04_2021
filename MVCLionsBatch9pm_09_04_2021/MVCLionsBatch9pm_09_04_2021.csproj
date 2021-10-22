@@ -192,6 +192,7 @@
       <DependentUpon>CountryModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\Emailconstraint.cs" />
     <Compile Include="Models\EmpDept.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
