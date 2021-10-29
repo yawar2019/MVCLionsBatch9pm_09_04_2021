@@ -200,6 +200,7 @@
     <Compile Include="Models\State.cs">
       <DependentUpon>CountryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyCustomFilter\UserDefinedFilter.cs" />
     <Compile Include="myhtmlhelper\HtmlHelperControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,6 +227,7 @@
     <Content Include="Views\Shared\_EmployeePartialView.cshtml" />
     <Content Include="Views\New\HtmlHelperExample.cshtml" />
     <Content Include="Views\New\ValidationExample.cshtml" />
+    <Content Include="Views\New\SelectPlayer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

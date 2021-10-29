@@ -1,4 +1,5 @@
 ﻿using MVCLionsBatch9pm_09_04_2021.Models;
+using MVCLionsBatch9pm_09_04_2021.MyCustomFilter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Web.Mvc;
 namespace MVCLionsBatch9pm_09_04_2021.Controllers
 {
     [RoutePrefix("girForest")]
+  
+
     public class NewController : Controller
     {
         // GET: shym got latest Code
@@ -44,7 +47,8 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
             return Name;
         }
 
-        public ActionResult Index2(int id)
+        [UserDefinedFilter]
+        public ActionResult Index2(int? id)
        {
             List<EmployeeModel> listobj = new List<EmployeeModel>();
 
@@ -327,9 +331,9 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
             return Json(emp, JsonRequestBehavior.AllowGet);
         }
-
         public ActionResult ValidationExample()
         {
+             
             return View();
 
         }
@@ -350,6 +354,12 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         public ActionResult CheckEmail(string EmailId)
         {
             return Content(EmailId);
+        }
+        [UserDefinedFilter]
+        public ActionResult SelectPlayer()
+        {
+            ViewBag.Player = "Dhoni";
+            return View();
         }
     }
 }
