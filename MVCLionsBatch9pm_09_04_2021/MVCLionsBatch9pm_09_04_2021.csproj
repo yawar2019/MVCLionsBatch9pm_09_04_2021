@@ -142,6 +142,16 @@
       <DependentUpon>CountryModel.edmx</DependentUpon>
       <LastGenOutput>CountryModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\UserModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserModel.edmx</DependentUpon>
+      <LastGenOutput>UserModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserModel.edmx</DependentUpon>
+      <LastGenOutput>UserModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Notes\Medicines Management.txt" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -154,6 +164,13 @@
     </EntityDeploy>
     <Content Include="Models\CountryModel.edmx.diagram">
       <DependentUpon>CountryModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\UserModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UserModel.edmx.diagram">
+      <DependentUpon>UserModel.edmx</DependentUpon>
     </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
@@ -171,6 +188,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NewController.cs" />
     <Compile Include="CustomeRouteHandler\UserDefinedRoute.cs" />
     <Compile Include="Global.asax.cs">
@@ -196,9 +214,33 @@
     <Compile Include="Models\EmpDept.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>UserModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Skills.cs" />
     <Compile Include="Models\State.cs">
       <DependentUpon>CountryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDetail.cs">
+      <DependentUpon>UserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRoleMapping.cs">
+      <DependentUpon>UserModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MyCustomFilter\UserDefinedFilter.cs" />
     <Compile Include="myhtmlhelper\HtmlHelperControl.cs" />
@@ -228,6 +270,8 @@
     <Content Include="Views\New\HtmlHelperExample.cshtml" />
     <Content Include="Views\New\ValidationExample.cshtml" />
     <Content Include="Views\New\SelectPlayer.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Dashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -358,8 +358,14 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         [UserDefinedFilter]
         public ActionResult SelectPlayer()
         {
+
+            EmployeeModel emp = new Models.EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "ravi";
+            emp.EmpSalary = 100000;
+
             ViewBag.Player = "Dhoni";
-            return View();
+            return View(emp);
         }
     }
 }

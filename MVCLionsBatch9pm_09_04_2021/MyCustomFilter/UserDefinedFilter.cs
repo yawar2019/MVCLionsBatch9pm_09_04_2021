@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCLionsBatch9pm_09_04_2021.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,9 @@ namespace MVCLionsBatch9pm_09_04_2021.MyCustomFilter
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
             (filterContext.Result as ViewResult).ViewBag.Player = "Chahal";
+            EmployeeModel s=(EmployeeModel)(filterContext.Result as ViewResult).Model;
+            s.EmpName = "Kanupriya";
+
         }
         public override void OnResultExecuted(ResultExecutedContext filterContext)
         {
