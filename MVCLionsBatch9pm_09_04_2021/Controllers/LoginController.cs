@@ -23,7 +23,8 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
 
             if (user != null)
             {
-                FormsAuthentication.SetAuthCookie(det.UserName, false);
+                Session["UserName"] = user.UserName;
+                FormsAuthentication.SetAuthCookie(det.UserName, false);//Auth=asdfaasdfxfsdfsd
                 return RedirectToAction("Dashboard");
             }
             return View();
@@ -33,6 +34,23 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         public ActionResult Dashboard()
         {
             return View();
+        }
+
+        [Authorize(Roles="Admin")]
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("~/login/login");
         }
     }
 }
