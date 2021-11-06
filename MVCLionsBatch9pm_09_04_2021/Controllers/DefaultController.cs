@@ -11,7 +11,9 @@ namespace MVCLionsBatch9pm_09_04_2021.Controllers
         // GET: Default
         public ActionResult Index()
         {
-            return View();
+            ServiceReference1.WebService1SoapClient obj = new ServiceReference1.WebService1SoapClient();
+            var result=obj.multiple(10, 20);
+            return Content(result.ToString());
         }
     }
 }
